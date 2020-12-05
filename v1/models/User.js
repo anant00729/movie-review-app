@@ -6,9 +6,8 @@ exports.checkUserExists = async (email) => {
     let res_d = await db.query(q1, {
       replacements: { email },
     });
-
-    console.log("res_d[0] :>> ");
-    if (res_d[0].length === 0) {
+    const table_res = res_d[0];
+    if (table_res.length === 0) {
       return {
         status: true,
         message: "User can register",
@@ -35,13 +34,38 @@ exports.insertUser = async (email, password, username) => {
     let res_d = await db.query(q1, {
       replacements: { email, password, username },
     });
-    if (res_d[1] === 1) {
+    const table_res = res_d[1];
+    if (table_res === 1) {
       return {
         status: true,
         message: "User registed successfully",
       };
     } else {
       return { status: false, message: "Something went wrong" };
+    }
+  } catch (error) {
+    return { status: false, message: error.message };
+  }
+};
+
+exports.checkUserExistsForLogin = async (email) => {
+  let q1 = `SELECT * FROM public.movie_user WHERE email = (:email);`;
+  try {
+    let res_d = await db.query(q1, {
+      replacements: { email },
+    });
+    const table_res = res_d[0];
+    if (table_res.length > 0) {
+      return {
+        status: true,
+        message: "",
+        user: table_res[0],
+      };
+    } else {
+      return {
+        status: false,
+        message: `User needs to register`,
+      };
     }
   } catch (error) {
     return { status: false, message: error.message };
