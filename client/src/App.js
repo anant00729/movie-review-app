@@ -1,9 +1,11 @@
 import "./App.css";
-import Home from "./pages/home";
-import Login from "./pages/login";
-import Register from "./pages/register";
-import MovieReview from "./pages/movie-review";
-import Header from "./components/header";
+import PageRoutes from "./PageRoutes";
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import { createBrowserHistory } from "history";
+
+const history = createBrowserHistory();
 
 function App() {
   return (
@@ -15,23 +17,9 @@ function App() {
         overflowY: "auto",
       }}
     >
-      <Header />
-      <div
-        id="layout"
-        style={{
-          marginTop: "52px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        {/* <Home /> */}
-        {/* <Login /> */}
-        {/* <Register /> */}
-        <MovieReview />
-      </div>
-
-      {/* <Register />
-      <MovieReview /> */}
+      <Router history={history}>
+        <Route component={PageRoutes} />
+      </Router>
     </div>
   );
 }

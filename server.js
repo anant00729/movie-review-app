@@ -1,6 +1,7 @@
 const express = require("express");
 var bodyParser = require("body-parser");
 const db = require("./config/database");
+const cors = require("cors");
 const userRouter = require("./v1/routes/user");
 const reviewRouter = require("./v1/routes/review");
 const movieRouter = require("./v1/routes/movie");
@@ -21,6 +22,7 @@ const auth = async () => {
 
 auth();
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const HeaderWrapper = styled.div`
   position: fixed;
@@ -23,7 +24,6 @@ export const HeaderContainer = styled.div`
 `;
 
 export const HeaderLabelWrapper = styled.div`
-  margin-left: ${(p) => (p.gotoLeft ? "auto" : "12px")};
   padding: 8px 10px;
   color: #fff;
   cursor: pointer;
@@ -32,6 +32,7 @@ export const HeaderLabelWrapper = styled.div`
     color: #202020;
     border-radius: 4px;
   }
+  text-decoration: none;
 `;
 
 export const HeaderLabel = styled.label`

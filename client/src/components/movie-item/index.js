@@ -1,14 +1,20 @@
 import React from "react";
 import { MovieImage, MovieItemWrapper, MovieLabel } from "./styles";
+import { Link } from "react-router-dom";
+import { MOVIE_REVIEW_ROUTE } from "../../utils/constants";
 
-export default function MovieItem(props) {
+export default function MovieItem({
+  movie: { poster_path, original_title, id },
+}) {
   return (
-    <MovieItemWrapper>
-      <MovieImage
-        src="https://image.tmdb.org/t/p/w220_and_h330_face/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg"
-        alt="img"
-      />
-      <MovieLabel>The Mandalorian</MovieLabel>
-    </MovieItemWrapper>
+    <Link to={`${MOVIE_REVIEW_ROUTE}/${id}`}>
+      <MovieItemWrapper>
+        <MovieImage
+          src={`https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}`}
+          alt="img"
+        />
+        <MovieLabel>{original_title}</MovieLabel>
+      </MovieItemWrapper>
+    </Link>
   );
 }
