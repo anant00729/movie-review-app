@@ -23,7 +23,6 @@ export const MainWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
-  margin-top: 52px;
 `;
 
 export const MovieListGrid = styled.div`

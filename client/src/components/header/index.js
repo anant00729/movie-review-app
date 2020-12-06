@@ -17,7 +17,9 @@ function Header() {
           {/* Right */}
           <AppHeaderLogo src={AppLogo} alt="app_logo" />
           <HeaderLabelWrapper>
-            <HeaderLabel>Movistar</HeaderLabel>
+            <HeaderLabel style={{ letterSpacing: "2px", fontSize: "18px" }}>
+              Movistar
+            </HeaderLabel>
           </HeaderLabelWrapper>
           {/* Left Side */}
           <HeaderLabelWrapper gotoLeft={true}>

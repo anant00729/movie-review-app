@@ -15,23 +15,22 @@ function App() {
         overflowY: "auto",
       }}
     >
+      <Header />
       <div
         id="layout"
         style={{
-          backgroundColor: "#222222",
-          minHeight: "calc(100vh - 52px)",
-          position: "absolute",
           marginTop: "52px",
-          left: 0,
+          display: "flex",
+          justifyContent: "center",
         }}
-      ></div>
-      <Home />
-      {/* 
-      <Login />
-      <Register />
-      <MovieReview /> */}
+      >
+        {/* <Home /> */}
+        {/* <Login /> */}
+        <Register />
+      </div>
 
-      <Header />
+      {/* <Register />
+      <MovieReview /> */}
     </div>
   );
 }

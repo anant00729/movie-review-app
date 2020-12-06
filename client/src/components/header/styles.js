@@ -41,4 +41,5 @@ export const HeaderLabel = styled.label`
 export const AppHeaderLogo = styled.img`
   width: 40px;
   height: 40px;
+  margin-left: 16px;
 `;
