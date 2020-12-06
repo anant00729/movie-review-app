@@ -33,7 +33,15 @@ exports.insertReview = async (movie_id, user_id, review_message) => {
 };
 
 exports.getAllReviews = async (movie_id) => {
-  let q1 = `SELECT id, review_message, user_id, movie_id FROM public.review WHERE movie_id = (:movie_id) ORDER BY id DESC;`;
+  let q1 = `SELECT
+  r.id,
+  u.username,
+  u.email,
+  r.review_message
+  FROM
+  public.review r 
+  INNER JOIN public.movie_user u ON r.user_id = u.id WHERE r.movie_id = (:movie_id) ORDER BY r.id DESC;`;
+
   try {
     let res_d = await db.query(q1, {
       replacements: { movie_id: movie_id },

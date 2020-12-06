@@ -19,3 +19,25 @@ SELECT id, review_message, user_id, movie_id
 
   SELECT id, review_message, user_id, movie_id
 	FROM public.review WHERE movie_id = '2';
+
+
+SELECT
+      r.id,
+      u.username,
+      u.email,
+      r.review_message
+      FROM
+      public.review r 
+      INNER JOIN public.movie_user u ON r.user_id = u.id WHERE r.movie_id = '2' ORDER BY r.id DESC;                  
+
+
+
+SELECT
+      r.id
+      r.user_id
+      u.username
+      u.email
+      r.review_message
+      FROM
+      public.review r 
+      INNER JOIN public.movie_user u ON r.user_id = u.id ORDER BY r.id DESC;                  

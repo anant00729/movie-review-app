@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "debugg": "nodemon --inspect server.js"
+    "debugg": "nodemon --inspect server.js",
+    "server": "nodemon --inspect server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
