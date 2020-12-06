@@ -4,7 +4,7 @@ const {
   checkUserExistsForLogin,
 } = require("../models/User");
 const bcrypt = require("bcryptjs");
-const SECRET_KEY = require("config").get("jwtSecret");
+const SECRET_KEY = process.env.JWT_S || require("config").get("jwtSecret");
 const jwt = require("jsonwebtoken");
 
 const generateToken = async (res) => {
