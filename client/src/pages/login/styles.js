@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { AppContainer } from "../../utils/styles";
 
 export const LoginCard = styled.div`
-  background-color: #272727;
+  background-color: #202020;
   border: 1px solid #fdce14;
   border-radius: 4px;
   box-shadow: 0 10px 0 -3px rgba(0, 0, 0, 0.1),

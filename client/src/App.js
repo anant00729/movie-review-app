@@ -9,7 +9,7 @@ function App() {
   return (
     <div
       style={{
-        backgroundColor: "#222222",
+        backgroundColor: "#181818",
         minHeight: "100vh",
         position: "relative",
         overflowY: "auto",
@@ -26,7 +26,8 @@ function App() {
       >
         {/* <Home /> */}
         {/* <Login /> */}
-        <Register />
+        {/* <Register /> */}
+        <MovieReview />
       </div>
 
       {/* <Register />

@@ -6,7 +6,7 @@ export const HeaderWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 52px;
-  background-color: #272727;
+  background-color: #202020;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -29,7 +29,7 @@ export const HeaderLabelWrapper = styled.div`
   cursor: pointer;
   &:hover {
     background-color: #fdce14;
-    color: #272727;
+    color: #202020;
     border-radius: 4px;
   }
 `;
