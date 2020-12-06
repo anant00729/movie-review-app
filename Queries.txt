@@ -1,0 +1,14 @@
+INSERT INTO public.movie(
+ tmdb_movie_id)
+	VALUES ('577922') RETURNING id;
+
+
+SELECT * FROM public.movie;  
+
+INSERT INTO public.review(
+	 review_message, user_id, movie_id)
+	VALUES ( 'Hello all', 8, 2);
+
+
+SELECT id, tmdb_movie_id
+FROM public.movie WHERE tmdb_movie_id = '1577922';
