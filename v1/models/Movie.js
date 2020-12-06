@@ -13,28 +13,15 @@ exports.checkMovieExists = async (tmdb_movie_id) => {
     if (table_res.length === 0) {
       return {
         status: true,
-        message: "Yes you can instert a new entry in movie table",
+        message: "Yes you can insert a new entry in movie table",
       };
     } else {
       return {
         status: false,
-        message: "Yes you can instert a new entry in movie table",
+        message: "",
         movie_id: table_res[0].id,
       };
     }
-
-    // if (table_res[0].id) {
-    //   return {
-    //     status: true,
-    //     message: "value Interted",
-    //     movie_id: table_res[0].id,
-    //   };
-    // } else {
-    //   return {
-    //     status: false,
-    //     message: `Something went wrong while inserting tmdbid`,
-    //   };
-    // }
   } catch (error) {
     return { status: false, message: error.message };
   }

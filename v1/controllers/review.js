@@ -1,5 +1,5 @@
 const { insertTMDBMovieId, checkMovieExists } = require("../models/Movie");
-const { insertReview } = require("../models/Review");
+const { insertReview, getAllReviews } = require("../models/Review");
 
 exports.createReview = async (req, res) => {
   const review_message = req.body.review_message || ""; // ""
@@ -31,4 +31,20 @@ exports.createReview = async (req, res) => {
     review_message
   );
   res.json(insertReviewRes);
+};
+
+exports.getAllReviewsByMovieId = async (req, res) => {
+  const tmdb_movie_id = req.body.tmdb_movie_id || -1; // 1577922
+
+  const checkMovieExistsRes = await checkMovieExists(tmdb_movie_id);
+
+  if (checkMovieExistsRes.status) {
+    res.json({
+      status: false,
+      message: "No Reviews found for this movie",
+    });
+  }
+
+  const getAllReviewsRes = await getAllReviews(checkMovieExistsRes.movie_id);
+  res.json(getAllReviewsRes);
 };

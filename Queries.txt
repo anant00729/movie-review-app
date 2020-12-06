@@ -12,3 +12,10 @@ INSERT INTO public.review(
 
 SELECT id, tmdb_movie_id
 FROM public.movie WHERE tmdb_movie_id = '1577922';
+
+
+SELECT id, review_message, user_id, movie_id
+	FROM public.review WHERE movie_id = '6';
+
+  SELECT id, review_message, user_id, movie_id
+	FROM public.review WHERE movie_id = '2';
