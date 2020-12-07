@@ -47,15 +47,6 @@ function Header({ history }) {
       <div
         style={{ marginLeft: "auto", display: "flex", alignItems: "center" }}
       >
-        {/* <Link
-          to={LOGIN_ROUTE}
-          style={{ textDecoration: "none", marginLeft: "auto" }}
-        >
-          <HeaderLabelWrapper>
-            <HeaderLabel>Logout</HeaderLabel>
-          </HeaderLabelWrapper>
-        </Link> */}
-
         <Link to={LOGIN_ROUTE} style={{ textDecoration: "none" }}>
           <HeaderLabelWrapper onClick={() => handleLogout()}>
             <HeaderLabel>Logout</HeaderLabel>

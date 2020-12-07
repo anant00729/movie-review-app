@@ -53,4 +53,5 @@ export const ProfilePic = styled.img`
   margin-left: 8px;
   object-fit: cover;
   object-position: center;
+  margin-right: 16px;
 `;
