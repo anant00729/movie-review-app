@@ -58,6 +58,10 @@ exports.register = async (req, res) => {
   if (checkUserRes.status) {
     password = await bcrypt.hash(password, 12);
     const insertUserRes = await insertUser(email, password, username);
+    const generateTokenRes = await generateToken(insertUserRes.user);
+    if (generateTokenRes.status) {
+      insertUserRes.token = generateTokenRes.token;
+    }
     res.json(insertUserRes);
   } else {
     res.json(checkUserRes);

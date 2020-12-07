@@ -28,7 +28,7 @@ exports.insertUser = async (email, password, username) => {
       (:email), 
       (:password),
       (:username)
-    );
+    ) RETURNING email, username, id;
   `;
   try {
     let res_d = await db.query(q1, {
@@ -39,6 +39,7 @@ exports.insertUser = async (email, password, username) => {
       return {
         status: true,
         message: "User registed successfully",
+        user: res_d[0][0],
       };
     } else {
       return { status: false, message: "Something went wrong" };
