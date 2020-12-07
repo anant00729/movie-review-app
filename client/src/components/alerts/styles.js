@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { MD } from "../../utils/styles";
 
 export const Snackbar = styled.div`
   /* Hidden by default. Visible on click */
@@ -37,10 +38,20 @@ export const SnackbarContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px;
+  padding: 16px 8px;
 `;
 
 export const AlertLabel = styled.label`
   font-size: 20px;
   margin-left: 12px;
+`;
+
+export const AlertLogo = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-left: 12px;
+
+  @media ${MD} {
+    margin-left: unset;
+  }
 `;

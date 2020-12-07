@@ -9,7 +9,7 @@ import {
 import LoginLogoImg from "../../images/earth-2.svg";
 import { AppInput, AppButton, AppFormLabel } from "../../utils/styles";
 import { withRouter } from "react-router-dom";
-import { HOME_ROUTE } from "../../utils/constants";
+import { HOME_ROUTE, validateEmail } from "../../utils/constants";
 import axios from "axios";
 import { GlobalContext } from "../../global/GlobalContext";
 
@@ -17,10 +17,21 @@ function Login({ history }) {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
 
-  const { storeAuth } = useContext(GlobalContext);
+  const { storeAuth, setAlert } = useContext(GlobalContext);
 
   const handleLoginClick = (e) => {
     e.preventDefault();
+
+    if (!inputEmail?.length) {
+      setAlert("Please enter your email.");
+      return;
+    } else if (!validateEmail(inputEmail)) {
+      setAlert("Please enter valid email address.");
+      return;
+    } else if (!inputPassword?.length) {
+      setAlert("Please enter your password.");
+      return;
+    }
 
     axios({
       method: "POST",

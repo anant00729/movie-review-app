@@ -10,30 +10,32 @@ function AddReview({ movieId }) {
 
   const handleSubmitReview = (e) => {
     e.preventDefault();
-    setAlert(
-      "Hello all Hello allHello allHello allHello allHello allHello allHello allHello allHello all"
-    );
-    // axios({
-    //   method: "POST",
-    //   url: "/v1/review/createReview",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   data: {
-    //     user_id,
-    //     tmdb_movie_id: movieId,
-    //     review_message: reviewContent,
-    //   },
-    // })
-    //   .then((res) => {
-    //     if (res?.data?.status) {
-    //       createReviewPost(res?.data?.data);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log("error.message :>> ", error?.message);
-    //   });
+    if (!reviewContent?.length) {
+      setAlert("Please enter your review message.");
+      return;
+    }
+
+    axios({
+      method: "POST",
+      url: "/v1/review/createReview",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      data: {
+        user_id,
+        tmdb_movie_id: movieId,
+        review_message: reviewContent,
+      },
+    })
+      .then((res) => {
+        if (res?.data?.status) {
+          createReviewPost(res?.data?.data);
+        }
+      })
+      .catch((error) => {
+        setAlert(error?.message);
+      });
   };
 
   return (
