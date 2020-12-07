@@ -38,7 +38,17 @@ function MovieReview({ match: { params } }) {
           {movieName.length > 0 ? (
             <MovieDetails movieName={movieName} poster={poster} />
           ) : (
-            <h2 style={{ color: "#fff" }}>Getting Movie info...</h2>
+            <div
+              style={{
+                minHeight: "400px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <h2 style={{ color: "#fff", width: "100%", textAlign: "center" }}>
+                Getting Movie info...
+              </h2>
+            </div>
           )}
         </div>
         <div>
