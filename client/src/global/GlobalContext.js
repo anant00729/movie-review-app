@@ -11,9 +11,11 @@ import {
 const initialState = {
   user_token: localStorage.getItem("user_token"),
   user_id: localStorage.getItem("user_id"),
+  username: localStorage.getItem("username"),
   isAuthenticated:
     !!localStorage.getItem("user_token") &&
     localStorage.getItem("user_token") != "undefined",
+  all_reviews: [],
 };
 
 // Create context
@@ -30,10 +32,10 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
-  function storeAuth(token, user_id) {
+  function storeAuth(token, user_id, username) {
     dispatch({
       type: STORE_TOKEN_AND_USER_ID,
-      payload: { token, user_id },
+      payload: { token, user_id, username },
     });
   }
 
@@ -44,7 +46,7 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
-  function storeAllMovieReviews(reviewList) {
+  function storeAllReviews(reviewList) {
     dispatch({
       type: GET_ALL_MOVIE_REVIEWS,
       payload: reviewList,
@@ -57,8 +59,11 @@ export const GlobalProvider = ({ children }) => {
         user_token: state.user_token,
         user_id: state.user_id,
         isAuthenticated: state.isAuthenticated,
+        all_reviews: state.all_reviews,
         clearAuth,
         storeAuth,
+        createReviewPost,
+        storeAllReviews,
       }}
     >
       {children}

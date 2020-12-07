@@ -27,7 +27,7 @@ function MovieReview({ match: { params } }) {
         }
       })
       .catch((error) => {
-        console.log("error.message :>> ", error.message);
+        console.log("error.message :>> ", error?.message);
       });
   }, []);
 
@@ -42,7 +42,7 @@ function MovieReview({ match: { params } }) {
           )}
         </div>
         <div>
-          <AddReview />
+          <AddReview movieId={params?.id} />
           <ShowReviews movieId={params?.id} />
         </div>
       </MovieReviewLayoutGrid>

@@ -38,11 +38,15 @@ function Register({ history }) {
       },
     })
       .then((res) => {
-        storeAuth(res?.data?.token, res?.data?.user?.id);
+        storeAuth(
+          res?.data?.token,
+          res?.data?.user?.id,
+          res?.data?.user?.username
+        );
         history.push(HOME_ROUTE);
       })
       .catch((error) => {
-        console.log("error.message :>> ", error.message);
+        console.log("error.message :>> ", error?.message);
       });
   };
 

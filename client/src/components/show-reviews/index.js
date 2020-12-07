@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Title, Wrapper } from "./styles";
 import ReviewItem from "../review-item";
 import axios from "axios";
 import EmptyBox from "../../images/box.svg";
+import { GlobalContext } from "../../global/GlobalContext";
 
 function ShowReviews({ movieId }) {
-  const [reviewList, setReviewList] = useState([]);
+  const { all_reviews, storeAllReviews } = useContext(GlobalContext);
 
   useEffect(() => {
     axios({
@@ -20,10 +21,12 @@ function ShowReviews({ movieId }) {
       },
     })
       .then((res) => {
-        setReviewList(res?.data?.all_reviews);
+        if (res?.data?.all_reviews.length > 0) {
+          storeAllReviews(res?.data?.all_reviews);
+        }
       })
       .catch((error) => {
-        console.log("error.message :>> ", error.message);
+        console.log("error.message :>> ", error?.message);
       });
   }, []);
 
@@ -55,9 +58,9 @@ function ShowReviews({ movieId }) {
     <Wrapper>
       <Title>Movie Reviews</Title>
 
-      {!reviewList?.length
+      {!all_reviews?.length
         ? renderNoReviews()
-        : reviewList.map((review, index) => {
+        : all_reviews.map((review, index) => {
             return <ReviewItem key={index} reviewData={review} />;
           })}
     </Wrapper>

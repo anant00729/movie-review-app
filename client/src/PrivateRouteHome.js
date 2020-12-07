@@ -3,7 +3,9 @@ import { Route, Redirect } from "react-router-dom";
 import { HOME_ROUTE } from "../src/utils/constants";
 
 const PrivateRouteHome = ({ component: Component, ...rest }) => {
-  const isAuthenticated = localStorage.getItem("user_token");
+  const isAuthenticated =
+    !!localStorage.getItem("user_token") &&
+    localStorage.getItem("user_token") != "undefined";
   return (
     <Route
       {...rest}
