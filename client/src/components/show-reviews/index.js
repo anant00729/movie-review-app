@@ -11,6 +11,10 @@ function ShowReviews({ movieId }) {
     axios({
       method: "POST",
       url: "/v1/review/getAllReviewsByMovieId",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
       data: {
         tmdb_movie_id: movieId,
       },

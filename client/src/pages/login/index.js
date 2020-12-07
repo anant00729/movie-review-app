@@ -25,6 +25,10 @@ function Login({ history }) {
     axios({
       method: "POST",
       url: "/v1/auth/login",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
       data: {
         email: inputEmail,
         password: inputPassword,

@@ -19,6 +19,7 @@ exports.createReview = async (req, res) => {
     const insertTMDBMovieIdRes = await insertTMDBMovieId(tmdb_movie_id);
     if (!insertTMDBMovieIdRes.status) {
       res.json(insertTMDBMovieIdRes);
+      return;
     }
     movie_id_retrieved = insertTMDBMovieIdRes.movie_id;
   } else {
@@ -43,6 +44,7 @@ exports.getAllReviewsByMovieId = async (req, res) => {
       status: false,
       message: "No Reviews found for this movie",
     });
+    return;
   }
 
   const getAllReviewsRes = await getAllReviews(checkMovieExistsRes.movie_id);

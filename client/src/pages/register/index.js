@@ -27,6 +27,10 @@ function Register({ history }) {
     axios({
       method: "POST",
       url: "/v1/auth/register",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
       data: {
         email: inputEmail,
         username: inputUsername,

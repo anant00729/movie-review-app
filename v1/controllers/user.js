@@ -33,7 +33,8 @@ exports.login = async (req, res) => {
   if (checkUserRes.status) {
     const match = await bcrypt.compare(password, checkUserRes.user.password);
     if (!match) {
-      res.json({ status: false, message: "Password doesnt match" });
+      res.json({ status: false, message: "Password doesn't match" });
+      return;
     }
     delete checkUserRes.user.password;
     const generateTokenRes = await generateToken(checkUserRes.user);
