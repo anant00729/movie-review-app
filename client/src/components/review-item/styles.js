@@ -4,7 +4,7 @@ export const ReviewCommentWrapper = styled.div`
   padding: 12px;
   width: 100%;
 
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
   display: flex;
   align-items: flex-start;

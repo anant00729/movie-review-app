@@ -1,10 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import {
   HeaderWrapper,
   HeaderLabelWrapper,
   HeaderContainer,
   AppHeaderLogo,
   HeaderLabel,
+  ProfilePic,
 } from "./styles";
 import { AppContainer } from "../../utils/styles";
 import AppLogo from "../../images/planet.svg";
@@ -13,7 +14,7 @@ import { LOGIN_ROUTE, REGISTER_ROUTE, HOME_ROUTE } from "../../utils/constants";
 import { GlobalContext } from "../../global/GlobalContext";
 
 function Header({ history }) {
-  const { isAuthenticated, clearAuth } = useContext(GlobalContext);
+  const { isAuthenticated, clearAuth, username } = useContext(GlobalContext);
 
   const handleLogout = () => {
     clearAuth();
@@ -43,7 +44,9 @@ function Header({ history }) {
 
   const showUserOptions = () => {
     return (
-      <div style={{ marginLeft: "auto" }}>
+      <div
+        style={{ marginLeft: "auto", display: "flex", alignItems: "center" }}
+      >
         {/* <Link
           to={LOGIN_ROUTE}
           style={{ textDecoration: "none", marginLeft: "auto" }}
@@ -58,6 +61,13 @@ function Header({ history }) {
             <HeaderLabel>Logout</HeaderLabel>
           </HeaderLabelWrapper>
         </Link>
+        {username?.length > 0 ? (
+          <ProfilePic
+            id="profile-img"
+            alt="profile-img"
+            src={`https://avatar.oxro.io/avatar.svg?name=${username}&length=2`}
+          />
+        ) : null}
       </div>
     );
   };

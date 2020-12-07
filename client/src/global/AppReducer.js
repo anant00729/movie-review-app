@@ -4,6 +4,8 @@ import {
   CREATE_REVIEW_POST,
   GET_ALL_MOVIE_REVIEWS,
   CLEAR_REVIEWS,
+  SET_ALERT,
+  REMOVE_ALERT,
 } from "./types";
 
 const appReducer = (state, action) => {
@@ -48,6 +50,16 @@ const appReducer = (state, action) => {
       return {
         ...state,
         all_reviews: [],
+      };
+    case SET_ALERT:
+      return {
+        ...state,
+        alerts: [...state.alerts, action?.payload],
+      };
+    case REMOVE_ALERT:
+      return {
+        ...state,
+        alerts: state?.alerts?.filter((alert) => alert.id !== action?.payload),
       };
     default:
       return state;

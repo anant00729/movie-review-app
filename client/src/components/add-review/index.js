@@ -6,31 +6,34 @@ import axios from "axios";
 
 function AddReview({ movieId }) {
   const [reviewContent, setReviewContent] = useState("");
-  const { user_id, createReviewPost } = useContext(GlobalContext);
+  const { user_id, createReviewPost, setAlert } = useContext(GlobalContext);
 
   const handleSubmitReview = (e) => {
     e.preventDefault();
-    axios({
-      method: "POST",
-      url: "/v1/review/createReview",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      data: {
-        user_id,
-        tmdb_movie_id: movieId,
-        review_message: reviewContent,
-      },
-    })
-      .then((res) => {
-        if (res?.data?.status) {
-          createReviewPost(res?.data?.data);
-        }
-      })
-      .catch((error) => {
-        console.log("error.message :>> ", error?.message);
-      });
+    setAlert(
+      "Hello all Hello allHello allHello allHello allHello allHello allHello allHello allHello all"
+    );
+    // axios({
+    //   method: "POST",
+    //   url: "/v1/review/createReview",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   data: {
+    //     user_id,
+    //     tmdb_movie_id: movieId,
+    //     review_message: reviewContent,
+    //   },
+    // })
+    //   .then((res) => {
+    //     if (res?.data?.status) {
+    //       createReviewPost(res?.data?.data);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log("error.message :>> ", error?.message);
+    //   });
   };
 
   return (
@@ -44,10 +47,7 @@ function AddReview({ movieId }) {
           style={{ width: "100%", boxSizing: "border-box", marginTop: 0 }}
           rows="5"
         />
-        <AppButton onClick={(e) => handleSubmitReview(e)}>
-          {" "}
-          Add Review
-        </AppButton>
+        <AppButton onClick={(e) => handleSubmitReview(e)}>Add Review</AppButton>
       </form>
     </AddReviewContainer>
   );

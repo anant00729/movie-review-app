@@ -45,3 +45,12 @@ export const AppHeaderLogo = styled.img`
   height: 40px;
   margin-left: 16px;
 `;
+
+export const ProfilePic = styled.img`
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-left: 8px;
+  object-fit: cover;
+  object-position: center;
+`;

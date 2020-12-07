@@ -6,6 +6,7 @@ import MovieReview from "./pages/movie-review";
 import Header from "./components/header";
 import PrivateRoute from "./PrivateRoute";
 import PrivateRouteHome from "./PrivateRouteHome";
+import Alert from "./components/alerts";
 
 import { Switch } from "react-router-dom";
 import {
@@ -44,6 +45,7 @@ function PageRoutes() {
           {/* <Route component={PageNotFound} /> */}
         </Switch>
       </div>
+      <Alert />
     </div>
   );
 }

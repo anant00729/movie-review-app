@@ -6,7 +6,10 @@ import {
   GET_ALL_MOVIE_REVIEWS,
   CREATE_REVIEW_POST,
   CLEAR_REVIEWS,
+  SET_ALERT,
+  REMOVE_ALERT,
 } from "./types";
+import { v4 as uuidv4 } from "uuid";
 
 // Initial state
 const initialState = {
@@ -17,6 +20,7 @@ const initialState = {
     !!localStorage.getItem("user_token") &&
     localStorage.getItem("user_token") != "undefined",
   all_reviews: [],
+  alerts: [],
 };
 
 // Create context
@@ -61,18 +65,33 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
+  function setAlert(msg, timeout = 2500) {
+    if (msg) {
+      const id = uuidv4();
+      dispatch({
+        type: SET_ALERT,
+        payload: { msg, id },
+      });
+
+      setTimeout(() => dispatch({ type: REMOVE_ALERT, payload: id }), timeout);
+    }
+  }
+
   return (
     <GlobalContext.Provider
       value={{
         user_token: state.user_token,
         user_id: state.user_id,
+        username: state.username,
         isAuthenticated: state.isAuthenticated,
         all_reviews: state.all_reviews,
+        alerts: state.alerts,
         clearAuth,
         storeAuth,
         createReviewPost,
         storeAllReviews,
         clearAllReviews,
+        setAlert,
       }}
     >
       {children}
