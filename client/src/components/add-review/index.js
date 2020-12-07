@@ -30,6 +30,7 @@ function AddReview({ movieId }) {
     })
       .then((res) => {
         if (res?.data?.status) {
+          setReviewContent("");
           createReviewPost(res?.data?.data);
         }
       })
