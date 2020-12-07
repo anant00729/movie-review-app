@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { MD } from "../../utils/styles";
 
 export const MovieImage = styled.img`
   width: 220px;
@@ -13,10 +14,18 @@ export const MovieTitle = styled.label`
   margin-top: 24px;
   color: #fff;
   font-size: 24px;
+  text-align: center;
+  @media ${MD} {
+    text-align: unset;
+  }
 `;
 
 export const MovieDetailsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 16px;
+  align-items: center;
+  @media ${MD} {
+    align-items: flex-start;
+  }
 `;

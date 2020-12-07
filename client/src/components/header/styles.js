@@ -27,6 +27,7 @@ export const HeaderLabelWrapper = styled.div`
   padding: 8px 10px;
   color: #fff;
   cursor: pointer;
+  transition: 0.2s;
   &:hover {
     background-color: #fdce14;
     color: #202020;

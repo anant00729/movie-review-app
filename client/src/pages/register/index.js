@@ -38,12 +38,14 @@ function Register({ history }) {
       },
     })
       .then((res) => {
-        storeAuth(
-          res?.data?.token,
-          res?.data?.user?.id,
-          res?.data?.user?.username
-        );
-        history.push(HOME_ROUTE);
+        if (res?.data?.status) {
+          storeAuth(
+            res?.data?.token,
+            res?.data?.user?.id,
+            res?.data?.user?.username
+          );
+          history.push(HOME_ROUTE);
+        }
       })
       .catch((error) => {
         console.log("error.message :>> ", error?.message);
