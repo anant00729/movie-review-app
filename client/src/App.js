@@ -1,9 +1,8 @@
 import "./App.css";
 import PageRoutes from "./PageRoutes";
-
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import { GlobalProvider } from "./global/GlobalContext";
 
 const history = createBrowserHistory();
 
@@ -17,9 +16,11 @@ function App() {
         overflowY: "auto",
       }}
     >
-      <Router history={history}>
-        <Route component={PageRoutes} />
-      </Router>
+      <GlobalProvider>
+        <Router history={history}>
+          <Route component={PageRoutes} />
+        </Router>
+      </GlobalProvider>
     </div>
   );
 }

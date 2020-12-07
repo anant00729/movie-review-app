@@ -4,6 +4,9 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import MovieReview from "./pages/movie-review";
 import Header from "./components/header";
+import PrivateRoute from "./PrivateRoute";
+import PrivateRouteHome from "./PrivateRouteHome";
+
 import { Route, Switch } from "react-router-dom";
 import {
   HOME_ROUTE,
@@ -30,10 +33,10 @@ function PageRoutes() {
         }}
       >
         <Switch>
-          <Route exact path={HOME_ROUTE} component={Home} />
-          <Route exact path={LOGIN_ROUTE} component={Login} />
-          <Route exact path={REGISTER_ROUTE} component={Register} />
-          <Route
+          <PrivateRoute exact path={HOME_ROUTE} component={Home} />
+          <PrivateRouteHome exact path={LOGIN_ROUTE} component={Login} />
+          <PrivateRouteHome exact path={REGISTER_ROUTE} component={Register} />
+          <PrivateRoute
             exact
             path={`${MOVIE_REVIEW_ROUTE}/:id`}
             component={MovieReview}
