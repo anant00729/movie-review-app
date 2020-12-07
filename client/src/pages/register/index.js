@@ -11,7 +11,7 @@ import { AppInput, AppButton, AppFormLabel } from "../../utils/styles";
 import { GlobalContext } from "../../global/GlobalContext";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-import { HOME_ROUTE } from "../../utils/constants";
+import { HOME_ROUTE, validateEmail } from "../../utils/constants";
 
 function Register({ history }) {
   const [inputEmail, setInputEmail] = useState("");
@@ -19,10 +19,33 @@ function Register({ history }) {
   const [inputPassword, setInputPassword] = useState("");
   const [inputConfirmPassword, setInputConfirmPassword] = useState("");
 
-  const { storeAuth } = useContext(GlobalContext);
+  const { storeAuth, setAlert } = useContext(GlobalContext);
 
   const handleRegisterClick = (e) => {
     e.preventDefault();
+
+    if (!inputEmail?.length) {
+      setAlert("Please enter your email.");
+      return;
+    } else if (!validateEmail(inputEmail)) {
+      setAlert("Please enter valid email address.");
+      return;
+    } else if (!inputUsername?.length) {
+      setAlert("Please enter your username.");
+      return;
+    } else if (!inputPassword?.length) {
+      setAlert("Please enter a password.");
+      return;
+    } else if (!inputConfirmPassword?.length) {
+      setAlert("Please enter a confirm password.");
+      return;
+    } else if (inputPassword?.length < 6) {
+      setAlert("Passwords must be more than 5 characters.");
+      return;
+    } else if (inputConfirmPassword !== inputPassword) {
+      setAlert("Passwords do not match.");
+      return;
+    }
 
     axios({
       method: "POST",
