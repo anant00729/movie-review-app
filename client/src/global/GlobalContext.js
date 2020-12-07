@@ -1,6 +1,11 @@
 import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
-import { CLEAR_TOKEN_AND_USER_ID, STORE_TOKEN_AND_USER_ID } from "./types";
+import {
+  CLEAR_TOKEN_AND_USER_ID,
+  STORE_TOKEN_AND_USER_ID,
+  GET_ALL_MOVIE_REVIEWS,
+  CREATE_REVIEW_POST,
+} from "./types";
 
 // Initial state
 const initialState = {
@@ -29,6 +34,20 @@ export const GlobalProvider = ({ children }) => {
     dispatch({
       type: STORE_TOKEN_AND_USER_ID,
       payload: { token, user_id },
+    });
+  }
+
+  function createReviewPost(reviewData) {
+    dispatch({
+      type: CREATE_REVIEW_POST,
+      payload: reviewData,
+    });
+  }
+
+  function storeAllMovieReviews(reviewList) {
+    dispatch({
+      type: GET_ALL_MOVIE_REVIEWS,
+      payload: reviewList,
     });
   }
 

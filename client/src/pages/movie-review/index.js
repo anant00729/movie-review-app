@@ -43,7 +43,7 @@ function MovieReview({ match: { params } }) {
         </div>
         <div>
           <AddReview />
-          <ShowReviews />
+          <ShowReviews movieId={params?.id} />
         </div>
       </MovieReviewLayoutGrid>
     </MovieReviewContainer>

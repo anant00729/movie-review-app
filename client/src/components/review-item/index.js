@@ -7,13 +7,15 @@ import {
   CommentLabel,
 } from "./styles";
 
-function ReviewItem() {
+function ReviewItem({ reviewData: { username, review_message } }) {
   return (
     <ReviewCommentWrapper>
-      <ProfilePic src="https://avatar.oxro.io/avatar.svg?name=Ar&length=2" />
+      <ProfilePic
+        src={`https://avatar.oxro.io/avatar.svg?name=${username}&length=2`}
+      />
       <CommentWrapper>
-        <UsernameLabel>{"Hello all"}</UsernameLabel>
-        <CommentLabel>{"Hello all"}</CommentLabel>
+        <UsernameLabel>{username}</UsernameLabel>
+        <CommentLabel>{review_message}</CommentLabel>
       </CommentWrapper>
     </ReviewCommentWrapper>
   );

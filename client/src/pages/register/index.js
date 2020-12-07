@@ -46,7 +46,7 @@ function Register({ history }) {
     <LoginContainer>
       <LoginCard>
         <LoginLogo src={LoginLogoImg} alt="login_logo" />
-        <LoginLabel>Welcome user</LoginLabel>
+        <LoginLabel>Hello new user</LoginLabel>
         <LoginForm>
           <AppFormLabel>Email</AppFormLabel>
           <AppInput
