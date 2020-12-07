@@ -5,6 +5,7 @@ import {
   STORE_TOKEN_AND_USER_ID,
   GET_ALL_MOVIE_REVIEWS,
   CREATE_REVIEW_POST,
+  CLEAR_REVIEWS,
 } from "./types";
 
 // Initial state
@@ -53,6 +54,13 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
+  function clearAllReviews() {
+    dispatch({
+      type: CLEAR_REVIEWS,
+      payload: [],
+    });
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -64,6 +72,7 @@ export const GlobalProvider = ({ children }) => {
         storeAuth,
         createReviewPost,
         storeAllReviews,
+        clearAllReviews,
       }}
     >
       {children}

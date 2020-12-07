@@ -7,7 +7,7 @@ import Header from "./components/header";
 import PrivateRoute from "./PrivateRoute";
 import PrivateRouteHome from "./PrivateRouteHome";
 
-import { Route, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import {
   HOME_ROUTE,
   LOGIN_ROUTE,

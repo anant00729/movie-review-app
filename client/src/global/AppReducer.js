@@ -3,6 +3,7 @@ import {
   CLEAR_TOKEN_AND_USER_ID,
   CREATE_REVIEW_POST,
   GET_ALL_MOVIE_REVIEWS,
+  CLEAR_REVIEWS,
 } from "./types";
 
 const appReducer = (state, action) => {
@@ -43,6 +44,11 @@ const appReducer = (state, action) => {
         all_reviews: [...action?.payload],
       };
 
+    case CLEAR_REVIEWS:
+      return {
+        ...state,
+        all_reviews: [],
+      };
     default:
       return state;
   }
