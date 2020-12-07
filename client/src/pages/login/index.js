@@ -53,10 +53,12 @@ function Login({ history }) {
             res?.data?.user?.username
           );
           history.push(HOME_ROUTE);
+        } else {
+          setAlert(res?.data?.message);
         }
       })
       .catch((error) => {
-        console.log("error.message :>> ", error?.message);
+        setAlert(error?.message);
       });
   };
 

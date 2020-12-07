@@ -10,7 +10,7 @@ exports.checkUserExists = async (email) => {
     if (table_res.length === 0) {
       return {
         status: true,
-        message: "User can register",
+        message: "User can register.",
       };
     } else {
       return {
@@ -38,11 +38,11 @@ exports.insertUser = async (email, password, username) => {
     if (table_res === 1) {
       return {
         status: true,
-        message: "User registed successfully",
+        message: "User registed successfully.",
         user: res_d[0][0],
       };
     } else {
-      return { status: false, message: "Something went wrong" };
+      return { status: false, message: "Something went wrong." };
     }
   } catch (error) {
     return { status: false, message: error.message };
@@ -65,7 +65,7 @@ exports.checkUserExistsForLogin = async (email) => {
     } else {
       return {
         status: false,
-        message: `User needs to register`,
+        message: `Please register yourself.`,
       };
     }
   } catch (error) {
