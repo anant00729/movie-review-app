@@ -30,6 +30,7 @@ const appReducer = (state, action) => {
         ...state,
         user_token: "",
         user_id: "",
+        username: "",
         isAuthenticated: false,
       };
 

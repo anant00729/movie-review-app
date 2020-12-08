@@ -7,6 +7,8 @@ import Header from "./components/header";
 import PrivateRoute from "./PrivateRoute";
 import PrivateRouteHome from "./PrivateRouteHome";
 import Alert from "./components/alerts";
+import PageNotFound from "./pages/404";
+import { Route } from "react-router-dom";
 
 import { Switch } from "react-router-dom";
 import {
@@ -42,6 +44,7 @@ function PageRoutes() {
             path={`${MOVIE_REVIEW_ROUTE}/:id`}
             component={MovieReview}
           />
+          <Route component={PageNotFound} />
           {/* <Route component={PageNotFound} /> */}
         </Switch>
       </div>
