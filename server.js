@@ -6,6 +6,7 @@ const path = require("path");
 const userRouter = require("./v1/routes/user");
 const reviewRouter = require("./v1/routes/review");
 const movieRouter = require("./v1/routes/movie");
+const { getTestData } = require("./test");
 
 const app = express();
 
@@ -39,6 +40,8 @@ app.get("/test", (req, res) => {
     hello: "Hello anan",
   });
 });
+
+app.get("/getListData", (req, res) => res.json(getTestData));
 
 const PORT = process.env.PORT || 5000;
 
