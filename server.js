@@ -6,6 +6,7 @@ const path = require("path");
 const userRouter = require("./v1/routes/user");
 const reviewRouter = require("./v1/routes/review");
 const movieRouter = require("./v1/routes/movie");
+const { connectBouponRoutes } = require("./boupon");
 const { getTestData } = require("./test");
 
 const app = express();
@@ -31,6 +32,7 @@ app.use(bodyParser.json());
 app.use(express.static("public/build"));
 app.use(express.static("public"));
 
+connectBouponRoutes(app);
 app.use("/v1/auth", userRouter);
 app.use("/v1/review", reviewRouter);
 app.use("/v1/movie", movieRouter);
