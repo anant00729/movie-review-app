@@ -17,7 +17,7 @@
         "storeWebsite" : "https://google.com"
       },
       "sku": "123123123",
-      "rank": "2",
+      "rank": 2,
       "title": "New Colaba Bakery",
       "subTitle": "document or a typeface without relying on meaningful content.",
       "shortDescription": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual",
