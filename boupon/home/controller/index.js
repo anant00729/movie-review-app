@@ -1,5 +1,6 @@
 const homeData = require("../dataSource/homeData.json");
 const freeDeals = require("../dataSource/freeDeals.json");
+const homeRecipe = require("../dataSource/homeRecipe.json");
 
 exports.getHomeData = async (req, res) => {
   res.json(homeData);
@@ -24,4 +25,14 @@ exports.getFreeDeals = async (req, res) => {
   }
   freeDeals.items = items;
   res.json(freeDeals);
+};
+
+exports.getAllRecipes = async (req, res) => {
+  let results = [];
+  for (let i = 0; i < 1000; i++) {
+    let r = homeRecipe.results[i % homeRecipe.results.length];
+    results.push(r);
+  }
+  homeRecipe.results = results;
+  res.json(homeRecipe);
 };
