@@ -15,7 +15,7 @@ exports.getFreeDeals = async (req, res) => {
     "outdoorandsports",
   ];
   let singleItem = freeDeals.items[0];
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 5; i++) {
     let duplicate = {
       ...singleItem,
       category: categories[i % categories.length],
