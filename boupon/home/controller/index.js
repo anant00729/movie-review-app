@@ -29,10 +29,15 @@ exports.getFreeDeals = async (req, res) => {
 
 exports.getAllRecipes = async (req, res) => {
   let results = [];
-  for (let i = 0; i < 1000; i++) {
-    let r = homeRecipe.results[i % homeRecipe.results.length];
+  for (let i = 0; i < 10; i++) {
+    let ranIndex = getRandomInt(homeRecipe.results.length - 1);
+    let r = homeRecipe.results[ranIndex];
     results.push(r);
   }
   homeRecipe.results = results;
   res.json(homeRecipe);
 };
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
