@@ -1,0 +1,38 @@
+{
+  "phoneNumber": "9324381865",
+  "simcardType": "Vodafone",
+  "operator": "Vodafone",
+  "amount": "100",
+  "redeemAmount": "20",
+  "items": [
+    {
+      "_id": "123123123",
+      "parentStoreId": {
+        "_id" : "123123123",
+        "parentMerchantId" : "qweqweqwe",
+        "storeName" : "New Colaba Bakery",
+        "storeEmail" : "colaba.bakery@gmail.com",
+        "storePhoneNumber" : "9324381865",
+        "storeAddress" : "D-30, Navy Nagar",
+        "storeWebsite" : "https://google.com"
+      },
+      "sku": "123123123",
+      "rank": "2",
+      "title": "New Colaba Bakery",
+      "subTitle": "document or a typeface without relying on meaningful content.",
+      "shortDescription": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual",
+      "longDescription": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual",
+      "highlights": "Sports",
+      "location": "Mumbai",
+      "category": "Sports",
+      "expiry": "12/12/12",
+      "mainImage": "https://source.unsplash.com/500x35",
+      "originalPrice": "₹ 99.00",
+      "discountedPrice": "₹ 99.00",
+      "value": "₹ 99.00",
+      "tnc": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+      "areaName": "Colaba",
+      "city": "Mumbai"
+    }
+  ]
+}
