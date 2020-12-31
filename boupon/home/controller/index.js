@@ -6,5 +6,22 @@ exports.getHomeData = async (req, res) => {
 };
 
 exports.getFreeDeals = async (req, res) => {
+  let items = [];
+  const categories = [
+    "foodsandcafe",
+    "lifestyle",
+    "beautyandsaloon",
+    "electronics",
+    "outdoorandsports",
+  ];
+  let singleItem = freeDeals.items[0];
+  for (let i = 0; i < 20; i++) {
+    let duplicate = {
+      ...singleItem,
+      category: categories[i % categories.length],
+    };
+    items.push(duplicate);
+  }
+  freeDeals.items = items;
   res.json(freeDeals);
 };
